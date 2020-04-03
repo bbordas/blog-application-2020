@@ -1,0 +1,47 @@
+<div class="columns">
+  <div class="column is-1"></div>
+  <div class="column is-11">
+    <div class="card verticalLine">
+      <app-display-comment
+        [user]="comment.user"
+        [date]="comment.date"
+        [parentUser]="parentUser"
+        [content]="comment.content"
+        [commentId]="comment.id"
+        (onReply)="onSendReply($event)"
+      ></app-display-comment>
+    </div>
+    <div *ngFor="let reply of replies">
+      <div class="card">
+        <app-display-comment
+          [user]="reply.user"
+          [date]="reply.date"
+          [parentUser]="parentUser"
+          [content]="reply.content"
+          [commentId]="reply.id"
+          (onReply)="onSendReply($event)"
+        ></app-display-comment>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--<div class="columns">
+  <div class="column is-1"></div>
+  <div class="column is-11">
+    <div *ngFor="let reply of comments">
+      <div class="card verticalLine">
+        <app-display-comment
+          [user]="reply.user"
+          [date]="reply.date"
+          [parentUser]="parentUser"
+          [content]="reply.content"
+          [commentId]="reply.id"
+          (onReply)="onSendReply($event)"
+        ></app-display-comment>
+      </div>
+    </div>
+  </div>
+</div>-->
+

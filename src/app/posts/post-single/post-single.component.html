@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<section class="section is-fullheight">
+  <div class="columns">
+    <div class="column is-3-desktop is-0-mobile"></div>
+
+    <div class="column is-6-desktop is-12-mobile">
+      <div class="card" *ngIf="post">
+        <nav class="breadcrumb is-small is-right" aria-label="breadcrumbs">
+          <ul>
+            <li><strong><a href="/">posts</a></strong></li>
+            <li class="is-active">
+              <strong><a href="#" aria-current="page">{{post.slug}}</a></strong>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="columns">
+          <div class="column is-1">
+            <h1><strong><i class="far fa-user-circle"></i></strong></h1>
+          </div>
+          <div class="column is-11">
+            <h2><strong>{{post.title | escapehtml}}</strong></h2>
+            <h4><strong>{{post.author | escapehtml}}</strong> | {{post.publish_date}}</h4>
+            <div [innerHTML]="content | safeHtml "></div><br>
+
+            <div class="media-content">
+              <div class="content">
+                <div *ngIf="!!comments" >
+                  <div *ngFor="let comment of postLevelComments">
+                    <app-comment
+                      [postId]="id"
+                      [comment]="comment"
+                      [comments]="childComments"
+                      [parentId]="comment.id"
+                      (onSubmit)="onSubmitForm($event)">
+                    </app-comment>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <app-add-comment
+              class="addComment"
+              [parentId]="null"
+              (onSubmit)=onSubmitForm($event)
+              [placeholderText] = "placeholder">
+            </app-add-comment>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="column is-3-desktop is-0-mobile"></div>
+  </div>
+</section>
+
+<app-footer></app-footer>
