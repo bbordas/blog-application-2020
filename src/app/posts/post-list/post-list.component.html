@@ -1,0 +1,39 @@
+<app-header></app-header>
+
+<section class="section is-fullheight">
+    <div class="columns" *ngIf="posts">
+      <div class="column is-3-desktop is-0-mobile"></div>
+
+      <div class="column is-6-desktop is-12-mobile">
+        <div class="row" *ngFor="let post of sortedPosts">
+          <div class="card">
+            <div class="card-content">
+
+              <h1>
+                {{post.title | escapehtml}}
+              </h1>
+              <p>
+                {{post.author | escapehtml}} |{{post.publish_date}}
+              </p>
+              <h3>
+                {{post.description | escapehtml}}
+              </h3>
+
+              <div class="is-pulled-right	">
+                <strong>
+                  <a routerLink="/posts/{{post.id}}">
+                    go to post<i class="fa fa-arrow-right"></i>
+                  </a>
+                </strong>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-3-desktop is-0-mobile"></div>
+    </div>
+</section>
+
+<app-footer></app-footer>

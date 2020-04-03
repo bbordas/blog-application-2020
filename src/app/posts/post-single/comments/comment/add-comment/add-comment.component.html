@@ -1,0 +1,36 @@
+<form id="commentInput" (ngSubmit)="submitForm()" #publishForm="ngForm">
+  <div class="field">
+    <input
+      type="text"
+      name="user"
+      class="input is-small is-focused"
+      [(ngModel)]="user"
+      #userInput="ngModel"
+      placeholder="enter username"
+      maxlength="50"
+      required/>
+    <div class="notification is-danger" *ngIf="userInput.invalid && userInput.touched">required field</div>
+  </div>
+  <div class="field">
+    <textarea
+      type="text"
+      name="content"
+      class="textarea has-fixed-size is-small"
+      rows="3"
+      [(ngModel)]="content"
+      #contentInput ="ngModel"
+      [placeholder]="this.placeholderText"
+      [value]="this.replyTo? '@' + this.replyTo.user: null"
+      maxlength="300"
+      required></textarea>
+    <div class="notification is-danger" *ngIf="contentInput.invalid && contentInput.touched">required field</div>
+  </div>
+  <button
+    type="submit"
+    class="button is-small is-warning"
+    [disabled]="publishForm.invalid">
+    Comment
+  </button>
+</form>
+
+

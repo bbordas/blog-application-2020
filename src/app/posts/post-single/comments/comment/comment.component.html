@@ -1,0 +1,40 @@
+<div class="columns">
+  <div class="column">
+    <div class="card verticalLine">
+      <p>
+      <app-display-comment
+      (onStateChange)="onSwitchState($event)"
+      (onReply)="onSendReply($event)"
+      [user]="comment.user"
+      [date]="comment.date"
+      [content]="comment.content"
+      [commentId]="comment.id"
+      [parentId]="parentId"
+      [numberOfComments] ="numberOfComments" >
+      </app-display-comment>
+    </div>
+
+    <div *ngIf="!!comments && showReply">
+      <div *ngFor="let com of commentLevelComments">
+        <app-child-comment
+          (click)="getCommentId(com.id)"
+          (onReply)="onSendReply($event)"
+          [parentUser] = 'comment.user'
+          [parentId] = "com.parent_id"
+          [commentId]="com.id"
+          [postId]="com.postId"
+          [comment]="com"
+          [comments]="childLevelComments">
+        </app-child-comment>
+      </div>
+    </div>
+    <app-add-comment
+      [placeholderText] = "placeholder"
+      class="addComment"
+      [replyTo] ='replyTo'
+      *ngIf="showReply"
+      [parentId]="comment.id"
+      (onSubmit)=onSubmitForm($event)>
+    </app-add-comment>
+  </div>
+</div>

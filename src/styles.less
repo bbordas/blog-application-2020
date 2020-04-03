@@ -1,0 +1,149 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~font-awesome/less/font-awesome';
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+@import '~open-sans-fontface/open-sans';
+@import '~bulma/css/bulma.css';
+
+@baseFontSize: 13px;
+@font-family-base: OpenSans, "Open Sans Regular", "Open Sans", "SansSerif", sans-serif;
+
+@font-size-h1: 28px;
+@font-size-h2: 18px;
+@font-size-h3: 16px;
+@font-size-h4: 12px;
+@font-size-h5: 12px;
+@font-size-h6: 10px;
+
+@red: #c81423;
+@red-hover : #FF3338;
+@bg-red: #FFF7F8;
+
+@black: #373d40;
+@dark-grey: #5e6770;
+@grey: #9fa9af;
+@light-grey: #e6e8e9;
+@white : #ffffff;
+@dark-orange: #e68a00;
+@yellow: #cca300;
+
+h1 {
+  font-size: @font-size-h1;
+  font-weight: bold;
+  color: @dark-grey;
+}
+
+h2 {
+  font-size: @font-size-h2;
+  color: @dark-grey;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: @font-size-h3;
+  color: @dark-grey;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+h4 {
+  font-size: @font-size-h4;
+  color: @grey;
+  font-weight: lighter;
+  margin-top: 10px;
+  margin-bottom: 6px;
+}
+
+h5 {
+  font-size: @font-size-h5;
+  color: @grey;
+  font-weight: lighter;
+  margin-bottom: 2px;
+}
+
+h6 {
+  font-size: @font-size-h6;
+  color: @light-grey;
+  font-weight: lighter;
+}
+
+p {
+  font-size: @baseFontSize;
+  color: @dark-grey;
+}
+
+a {
+  font-size: @baseFontSize;
+  color: @dark-orange;
+}
+
+.container, .card{
+  padding: 10px 25px 30px 25px;
+  margin-bottom: 15px;
+}
+
+
+html, body{
+  min-height: 100%;
+  background-image: url('assets/images/background.jpg') !important;
+  background-position: center;
+  background-size: cover;
+}
+
+
+.breadcrumb a {
+  color: @dark-orange;
+}
+
+.notification {
+  padding: 3px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.commentIcons {
+  margin: 0 10px 0 2px;
+  color: @dark-orange;
+}
+
+.commentIcons:hover, a:hover {
+  color: @dark-grey;
+}
+
+.userName {
+  color: @dark-orange;
+  font-weight: bold;
+}
+
+.userReplyName {
+  color: @yellow;
+  font-weight: bold;
+}
+
+.nameIcons {
+  font-size: 16px;
+}
+
+.addComment {
+  padding-top: 1200px;
+}
+
+.title{
+  font-size: @font-size-h2;
+  color: @dark-orange;
+}
+
+input {
+  margin-top: 20px;
+}
+
+app-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+.section {
+  margin-bottom: 250px;
+}
+
+

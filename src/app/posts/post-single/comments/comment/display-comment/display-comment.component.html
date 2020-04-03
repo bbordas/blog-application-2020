@@ -1,0 +1,22 @@
+<p><span class="userName"><i class="far fa-user-circle nameIcons"></i>
+  {{user | escapehtml}}
+  </span>
+  <span class="is-pulled-right">
+    {{date}}
+  </span>
+</p>
+<p><span *ngIf="name" class="userName">{{name | escapehtml}} </span> {{content | escapehtml}}</p>
+<div (click)="onSwitchState(!showReply)">
+  <span *ngIf="!!numberOfComments || !!parentId">
+    <a class="is-pulled-right">
+      <strong>{{numberOfComments}}</strong>
+      <i class="fas fa-comment-alt commentIcons"></i>
+    </a>
+    <a class="is-pulled-right">
+      <i class="fa fa-reply commentIcons"></i>
+    </a>
+  </span>
+  <a *ngIf="!numberOfComments && !parentId" class="is-pulled-right">
+    <strong>reply</strong>
+  </a>
+</div>
